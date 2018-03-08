@@ -1,0 +1,42 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Blank Wiki{% endblock %}
+
+{% block head %}
+{{ super() }}
+<meta charset="utf-8"/>
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+<link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+{% endblock %}
+
+{% block navbar %}
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="#">Blank Wiki</a>
+	    </div>
+	  </div><!-- /.container-fluid -->
+	</nav>
+{% endblock %}
+
+{% block content %}
+	<div class="container-fluid">
+	    <!-- flash message -->
+	    {% for message in get_flashed_messages() %}
+	    <div class="alert alert-warning alert-dismissible" role="alert">
+	        <button type="button" class="close" data-dismiss="alert">
+	            <span aria-hidden="true">&times;</span>
+	            <span class="sr-only">close</span></button>
+	        {{ message }}
+	    </div>
+	    {% endfor %}
+
+	    <!-- body block -->
+	    {% block page_content %} {% endblock %}
+	</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+{% endblock %}

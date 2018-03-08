@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<div class="container">
+    <div class="text-center">
+        <h1>{{ post.title }}</h1>
+    </div>
+    <div class="post-body">
+        {% if post.body_html %} {{ post.body_html | safe }} {% endif %}
+    </div>
+    <!-- <a href="/{{post.url}}">Edit</a> -->
+    <a href="javascript:void(0)" onclick="edit_post()">Edit</a>
+    <div style="display: none;">
+    	<span style="white-space: pre;"></span>
+    	<form id="myForm" action="/{{ post.url }}" method="post"></form>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script type="text/javascript">
+	function edit_post() {
+		document.getElementById('myForm').submit();
+	}
+</script>
+{% endblock %}

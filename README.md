@@ -1,0 +1,1 @@
+# Blank wiki, simple document

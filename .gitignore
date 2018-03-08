@@ -1,0 +1,8 @@
+venv
+__pycache__
+dev
+dev.txt
+tmp.py
+data-dev.sqlite
+data.sqlite
+.idea
